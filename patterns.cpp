@@ -24,6 +24,111 @@ int symbol()
 
 
 // patterns
+// mountain top
+int mountain_pattern()
+{   
+    int size_m;
+    char dec;
+    char sym_m;
+    char symb_dec;
+    cout << "Enter the size of mountain pattern : " << endl;
+    cin >> size_m;
+    cout << "Enter what pattern u want : \n ^s^ -> Symbol pattern \n ^n^ -> Number pattern \n ^p^ -> Palindromic pattern" << endl;
+    cin >> dec;
+    int size_m_d = size_m;
+    int space_size = size_m;
+    if(dec == 's')
+    {
+        cout << "Do you want full or half (f/h) : " << endl;
+        cin >> symb_dec;
+        cout << "Enter the symbol : " << endl;
+        cin >> sym_m;
+        if( symb_dec == 'h')
+        {
+            for (int i = 1; i <= size_m; i++)
+            {
+                --size_m_d;
+                for(int j = 1 ; j <= size_m_d; j++)
+                {
+                    cout << "  ";
+                }
+                for(int j = 1; j <= i; j++)
+                {
+                    cout << " " << sym_m  << "  ";
+                }
+                cout << endl;
+            }
+            cout << endl;
+        } else if ( symb_dec == 'f')
+        {
+            for (int i = 1; i <= size_m; i++)
+            {
+                size_m_d--;
+                for (int j = 1 ; j <= size_m_d ; j++)
+                {
+                    cout << "  ";
+                }
+                for( int j = 1; j <= i; j++)
+                {
+                    cout << " " << sym_m << "  ";
+                }
+                cout << endl;
+            }
+            space_size = 0;
+            for (int i = size_m; i >= 1; i--)
+            {   
+                 space_size++;
+                for (int j = 1; j <= space_size ; j++)
+                {
+                    cout << "  ";
+                }
+                for( int j = 1; j <= i; j++)
+                {
+                    cout << " " << sym_m << "  ";
+                }
+                cout << endl;
+            }
+        }
+    }else if(dec == 'n')
+    {
+        for (int i = 1; i <= size_m; i++)
+        {
+            --size_m_d;
+            for(int j = 1 ; j <= size_m_d; j++)
+            {
+                cout << "  ";
+            }
+            for(int j = 1; j <= i; j++)
+            {
+                cout << " " << j  << "  ";
+            }
+            cout << endl;
+        }
+        cout << endl;
+// palindromic pattern
+    } else if (dec == 'p')
+    {   
+        for (int i = 1; i <= size_m; i++)
+        {
+            for(int j = space_size; j >= 1; j--)
+            {
+                cout << "   ";
+            }
+            for( int j = i; j >= 1; j--)
+            {
+                cout << " " << j << " ";
+            }
+            for (int j = 2; j <= i; j++)
+            {
+                cout << " " << j << " ";
+            }
+            cout << endl;
+            space_size--;
+        }
+    }
+    else { cout << "The code exited due to wrong command input..!!" << endl; exit(EXIT_FAILURE);}
+    return 0;
+}
 
 // rhombus pattern
 int rhombus_pattern()
@@ -45,7 +150,6 @@ int rhombus_pattern()
     }
     return 0;
 }
-
 
 // binary pyramid
 int dual_symb_pyramid()
@@ -305,8 +409,9 @@ int main()
 {
     char cond;
     char what;
+    int counting = 0;
     do { 
-        cout << "Enter what pattern is required \n ^f^ -> fill pattern \n ^h^  -> hollow pattern \n ^i^ -> inverted Pyramid pattern  \n ^p^ -> Pyramid pattern \n ^b^ -> Butterfly pattern \n ^r^ -> Rhumbus pattern :"  << endl;
+        cout << "Enter what pattern is required \n ^f^ -> Fill pattern \n ^h^  -> Hollow pattern \n ^i^ -> Inverted Pyramid pattern  \n ^p^ -> Pyramid pattern \n ^b^ -> Butterfly pattern \n ^r^ -> Rhumbus pattern \n ^m^ -> Mountain pattern :"  << endl;
         cin >> what;
 
         if(what == 'f')
@@ -328,10 +433,14 @@ int main()
         {
             symbol();
             butterfly_pattern();
-        }else if(what == 'p')
+        }else if ( what == 'm')
+        {
+            mountain_pattern();
+        }
+        else if(what == 'p')
         {   
             char n_cho;
-            cout << "Enter \n ^s^ -> symbol \n ^n^ -> numbered \n ^r^ -> row numbered \n ^d^ -> dual numbered :  " <<endl;
+            cout << "Enter \n ^s^ -> symbol \n ^n^ -> numbered \n ^r^ -> row numbered \n ^d^ -> Dual numbered \n :  " <<endl;
             cin >> n_cho;
             if(n_cho== 'n')
             {
@@ -354,11 +463,13 @@ int main()
         }
         cout << "Do you want to try the pattern again ..? (y/n): " << endl;
         cin >> cond;
+        counting++;
     }
     while (cond == 'y');
 
     if (cond == 'n')
     {
+        cout << "\n No of Patterns tried : \n" << counting << endl;
         cout << "\nProgram executed....\n" << endl;
     }
 
