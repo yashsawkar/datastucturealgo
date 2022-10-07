@@ -471,6 +471,7 @@ int main()
     {
         cout << "\n No of Patterns tried : \n" << counting << endl;
         cout << "\nProgram executed....\n" << endl;
+        cout << "The program is made by Yash Sawkar" << endl; 
     }
 
     return 0;   
