@@ -1,0 +1,136 @@
+
+
+
+#include<iostream>
+#include<cmath>
+#include<climits>
+using namespace std;
+
+int arr[100];
+int sorted_arr[100];
+int n;
+int maxel = INT_MIN;
+int minel = INT_MAX;
+
+// displaying array
+int display_arr(int arr[100], int n)
+{
+      
+      cout << "\n[  ";
+      for (int i = 0; i <= n-1; i++)
+      {
+          cout << arr[i] << "  ";
+      }
+      cout << "]\n" << endl;
+      return 0;
+}
+
+// creating array
+int create_arr()
+{
+      int dec;
+      cout << " \nEnter the size of the array : "  <<  endl;
+      cin >> n;
+      cout << " \nEnter the type of arrey required  : " << endl;
+      cout << " ^1^ -> For even number array " << endl;
+      cout << " ^2^ -> for odd number array " << endl;
+      cout << " ^3^ -> for natural number array " << endl;
+      cout << " ^4^ -> for random number array " << endl;
+      cout << " ^5^ -> for custom imput array" << endl;
+      cout << " ---> * ->> " << endl;
+      cin >> dec;
+      if (dec == 1)
+      {
+
+            int dt = 2;
+            for(int i = 0; i <= n-1; i++)
+            {
+                  arr[i] = dt;
+                  dt += 2;
+            }
+      } else if(dec == 2)
+      {
+            int dt = 1;
+            for(int i = 0; i <= n-1; i++)
+            {
+                  arr[i] = dt;
+                  dt += 2; 
+            }
+      } else if(dec == 3)
+      {
+            for(int i = 0; i <= n-1; i++)
+            {
+                  arr[i] = i+1;
+            }
+      } else if (dec == 4)
+      {     
+            int range;
+            cout <<" Enter the range of number : " << endl;
+            cin >> range;
+            for (int i = 0; i <= n-1; i++)
+            {
+                  arr[i] = rand()%range;
+            }
+      } else if (dec == 5)
+      {
+            for (int i = 0; i <= n-1; i++)
+            {
+                  cout << "Enter " << i+1 << " value : " << endl;
+                  cin >> arr[i];
+            }
+      }
+      return 0;
+}
+
+int max_ele(int arr[100], int n)
+{
+      for (int i = 0; i <= n; i++)
+      {
+            if (arr[i] > maxel)
+            {
+                  maxel = arr[i];
+            }
+      }
+      return  maxel;
+}
+
+int min_ele(int arr[100], int n)
+{
+      for(int i = 0; i <= n-1 ; i++)
+      {
+            if (arr[i] < minel)
+            {
+                  minel = arr[i];
+            }
+      }
+      return minel;
+}
+
+int sorting(int arr[100], int n)
+{
+      int dec;
+      cout << " Enter the order elements arrangment : " << endl;
+      cout << " ^0^ -> for Ascending" << endl;
+      cout << " ^1^ -> for Descending" << endl;
+      cin >> dec;
+      if (dec == 0)
+      {
+            for (int  i = 0; i <= n; i++)
+            {
+                  if (arr[i] < minel)
+                  {
+                        minel = arr[i];
+                  }
+            }
+      }
+
+}
+
+int main()
+{
+      create_arr();
+      display_arr(arr, n);
+      cout << "\nThe maximum element in the array is : \n " << max_ele(arr, n) << "\n"<< endl;
+      cout << "\nThe minimum element in the array is : \n " << min_ele(arr, n) << "\n"<< endl;
+      return 0;
+}
