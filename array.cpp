@@ -6,7 +6,7 @@
 #include<climits>
 using namespace std;
 
-int arr[100];
+int arr[1000];
 int sorted_arr[100];
 int n;
 int maxel = INT_MIN;
@@ -84,7 +84,7 @@ int create_arr()
 
 int max_ele(int arr[100], int n)
 {
-      for (int i = 0; i <= n; i++)
+      for (int i = 0; i <= n-1; i++)
       {
             if (arr[i] > maxel)
             {
@@ -115,15 +115,35 @@ int sorting(int arr[100], int n)
       cin >> dec;
       if (dec == 0)
       {
-            for (int  i = 0; i <= n; i++)
+            for(int i = 0; i <= n-1 ; i++)
             {
-                  if (arr[i] < minel)
+                  for(int j = i+1 ; j <= n-1; j++)
                   {
-                        minel = arr[i];
+                        if(arr[i] > arr[j])
+                        {
+                              int temp = arr[i];
+                              arr[i] = arr[j];
+                              arr[j] = temp;
+                        }
+                  }
+            }
+      } else if( dec == 1)
+      {
+            for(int i = 0; i <= n-1; i++)
+            {
+                  for(int j = i+1; j <= n-1; j++)
+                  {
+                        if(arr[i]< arr[j])
+                        {
+                              int tem  =arr[i];
+                              arr[i] = arr[j];
+                              arr[j] = tem;
+                        }
                   }
             }
       }
-
+      cout << " The sorted array is \n " << display_arr(arr,n) << endl;
+      return 0;
 }
 
 int main()
@@ -132,5 +152,6 @@ int main()
       display_arr(arr, n);
       cout << "\nThe maximum element in the array is : \n " << max_ele(arr, n) << "\n"<< endl;
       cout << "\nThe minimum element in the array is : \n " << min_ele(arr, n) << "\n"<< endl;
+      sorting(arr, n);
       return 0;
 }
