@@ -25,6 +25,63 @@ int display_arr(int arr[100], int n)
       return 0;
 }
 
+int binary_search(int arr[100], int n)
+{
+      int key;
+      cout << "Enter the key to find  : " << endl;
+      cin >> key;
+      int mid_v = n/2;
+      if(key < arr[mid_v])
+      {
+            for (int i = 0; i <= mid_v; i++)
+            {
+                  if(arr[i] == key)
+                  {
+                        cout << "Found at index :  " << i+1 << endl;
+                        break;
+                  } else if (i >= mid_v)
+                  {
+                        cout << " \nElement not found in this array.....!\n" << endl;
+                  }
+            } 
+      } else if(key == arr[mid_v])
+      {
+            cout << "Found at index " << mid_v+1 << endl;
+      } else if(key > arr[mid_v])
+      {
+            for (int i = mid_v; i <= n; i++)
+            {
+                  if(arr[i] == key)
+                  {
+                        cout << "Found at index :  " << i+1 << endl;
+                        break;
+                  } else if(i >= n)
+                  {
+                        cout << "\n Element not found in this array....\n" << endl;
+                  }
+            }
+      } else if(key > arr[n])
+      {
+            cout << "\nElemnet is not in this array....!\n" << endl;
+      }
+       else
+      {
+            cout << " Intiallizing Linear search... \n binary search failed to find unit " << endl;
+            for(int i = 0; i <= n; i++)
+            {
+                  if(arr[i] == key)
+                  {
+                        cout << "Element found at index :  " << i+1 << endl;
+                        break;
+                  } else
+                  {
+                        cout << "\nElement not found.....\n" << endl;
+                  }
+            }
+      } 
+      return 0;
+}
+
 // creating array
 int create_arr()
 {
@@ -153,5 +210,6 @@ int main()
       cout << "\nThe maximum element in the array is : \n " << max_ele(arr, n) << "\n"<< endl;
       cout << "\nThe minimum element in the array is : \n " << min_ele(arr, n) << "\n"<< endl;
       sorting(arr, n);
+      binary_search(arr, n);
       return 0;
 }

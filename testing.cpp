@@ -25,6 +25,59 @@ int display_arr(int arr[100], int n)
       return 0;
 }
 
+int binary_search(int arr[100], int n)
+{
+      int key;
+      cout << "Enter the key to find  : " << endl;
+      cin >> key;
+      int mid_v = n/2;
+      if(key < arr[mid_v])
+      {
+            for (int i = 0; i <= mid_v; i++)
+            {
+                  if(arr[i] == key)
+                  {
+                        cout << "Found at index :  " << i << endl;
+                        break;
+                  } else
+                  {
+                        cout << "Element not found..." << endl;
+                  }
+            } 
+      } else if(key == arr[mid_v])
+      {
+            cout << "Found at index " << mid_v << endl;
+      } else if(key > arr[mid_v])
+      {
+            for (int i = mid_v; i < n; i++)
+            {
+                  if(arr[i] == key)
+                  {
+                        cout << "Found at index :  " << i << endl;
+                        break;
+                  } else
+                  {
+                        cout << "Element not found..." << endl;
+                  }
+            }
+      } else
+      {
+            cout << " Intiallizing Linear search... \n binary search failed to find unit " << endl;
+            for(int i = 0; i <= n; i++)
+            {
+                  if(arr[i] == key)
+                  {
+                        cout << "Element found at index :  " << i << endl;
+                        break;
+                  } else 
+                  {
+                        cout << "Element not found...."<< endl;
+                  }
+            }
+      }
+      return 0;
+}
+
 // creating array
 int create_arr()
 {
@@ -123,7 +176,7 @@ int sorting(int arr[100], int n)
                   }
             }
       }
-
+      return 
 }
 
 int main()
