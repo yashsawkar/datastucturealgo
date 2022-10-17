@@ -203,6 +203,26 @@ int sorting(int arr[100], int n)
       return 0;
 }
 
+int insertion(int arr[100], int n)
+{
+      int pos,ele;
+      cout << " Enter the pos : \n";
+      cin >> pos;
+      cout << " Enter the element : \n";
+      cin >> ele;
+      for(int i = n; i >= pos;i--)
+      {
+            if(i == pos)
+            {
+                  arr[i-1] = ele;
+                  break;
+            }
+            arr[i+1] = arr[i];
+      }
+      display_arr(arr,n);
+      return 0;
+}
+
 int main()
 {
       create_arr();
@@ -211,5 +231,6 @@ int main()
       cout << "\nThe minimum element in the array is : \n " << min_ele(arr, n) << "\n"<< endl;
       sorting(arr, n);
       binary_search(arr, n);
+      insertion(arr, n);
       return 0;
 }
