@@ -410,17 +410,24 @@ int main()
     char cond;
     char what;
     int counting = 0;
+    char s_what;
     do { 
-        cout << "Enter what pattern is required \n ^f^ -> Fill pattern \n ^h^  -> Hollow pattern \n ^i^ -> Inverted Pyramid pattern  \n ^p^ -> Pyramid pattern \n ^b^ -> Butterfly pattern \n ^r^ -> Rhumbus pattern \n ^m^ -> Mountain pattern :"  << endl;
+        cout << "Enter what pattern is required \n ^s^ -> sequancial \n ^i^ -> Inverted Pyramid pattern  \n ^p^ -> Pyramid pattern \n ^b^ -> Butterfly pattern \n ^r^ -> Rhumbus pattern \n ^m^ -> Mountain pattern :"  << endl;
         cin >> what;
 
-        if(what == 'f')
-        {   symbol();
-            fill_pattern();
-        } else if(what == 'h')
-        {
-            symbol();
-            hollow_pattern();
+        if(what == 's')
+        {   
+            cout << "Enter fill pattern or hollow pattern :" << endl;
+            cin >> s_what;
+            if(s_what == 'f')
+            {
+                symbol();
+                fill_pattern();
+            } else if (s_what == 'h')
+            {
+                symbol();
+                hollow_pattern();
+            }
         } else if(what == 'i')
         {
             symbol();
