@@ -26,5 +26,11 @@ int main()
      cout << "first : \n" << "info : " << ele3.info << "\n" << "address : " << ele.id+1 << endl;
      cout << "Conforming the address to the info : " << *ele.id  << endl;
 
+     // changing the infor through the address
+      *ele.id = *ele3.id;
+      cout << "The info is : " << *ele.id << endl;
+      cout << "Conforming the info : " << ele.info << endl;
+
+
      return 0;
 }
