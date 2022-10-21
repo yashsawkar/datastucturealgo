@@ -21,10 +21,10 @@ int main()
      cout << "--------------------------------" << endl;
      cout << "first : \n" << "info : " << ele.info << "\n" << "address : " << ele.id << endl;
      cout << "Conforming the address to the info : " << *ele.id << endl;
-     cout << "first : \n" << "info : " << ele2.info << "\n" << "address : " << ele2.id << endl;
-     cout << "Conforming the address to the info : " << *ele2.id << endl;
-     cout << "first : \n" << "info : " << ele3.info << "\n" << "address : " << ele3.id << endl;
-     cout << "Conforming the address to the info : " << *ele3.id << endl;
+     cout << "first : \n" << "info : " << ele.info << "\n" << "address : " << ele2.id +1 << endl;
+     cout << "Conforming the address to the info : " << *ele.id << endl;
+     cout << "first : \n" << "info : " << ele3.info << "\n" << "address : " << ele.id+1 << endl;
+     cout << "Conforming the address to the info : " << *ele.id  << endl;
 
      return 0;
 }
