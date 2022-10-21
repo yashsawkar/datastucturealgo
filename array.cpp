@@ -177,7 +177,8 @@ int sorting(int arr[100], int n)
                   for(int j = i+1 ; j <= n-1; j++)
                   {
                         if(arr[i] > arr[j])
-                        {
+                        {     
+                              display_arr(arr,n);
                               int temp = arr[i];
                               arr[i] = arr[j];
                               arr[j] = temp;
