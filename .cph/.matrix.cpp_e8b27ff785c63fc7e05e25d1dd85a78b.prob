@@ -1,0 +1,1 @@
+{"name":"Local: matrix","url":"/Users/yash/Desktop/datastucturealgo/matrix.cpp","tests":[{"id":1666944737561,"input":"2\n4\n1 2\n8\n4 3 6\n1 7 9 5","output":""}],"interactive":false,"memoryLimit":1024,"timeLimit":3000,"srcPath":"/Users/yash/Desktop/datastucturealgo/matrix.cpp","group":"local","local":true}
