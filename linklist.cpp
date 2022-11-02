@@ -1,51 +1,63 @@
 
+
 #include<iostream>
 using namespace std;
 
-
-int display_2d(int arr[100][100], int n,  int m)
-{
-     cout << "The 2d representation is : \n" << endl;
-     for (int i = 0; i < n; i++)
-     {
-          for (int j = 0 ; j < m; j++)
-          {
-               cout << "   " << arr[i][j];
-          }
-          cout << "\n\n";
-     }
-     return 0;
-}
-
-int input_2d(int arr[100][100], int n, int m)
-{
-     for (int i = 0; i < n; i++)
-     {
-          for (int j = 0; j < m; j++)
-          {
-               cout << " column " << i + 1 << " row " << j + 1 << endl;
-               cin >> arr[i][j];
-          }
-     }
-     return 0;
-}
-
-
-class node
-{
+class node{
      public:
-     int info;
-     node* id;
+     int data;
+     node*next;
 
      node(int val)
      {
-          info = val;
-          id = NULL;
+          data = val;
+          next = NULL;
      }
+};
+
+void inserttionAttail(node*&head, int val)
+{
+     node*n = new node(val);
+     if(head == NULL)
+     {
+          head = n;
+          return;
+     }
+     node* temp = head;
+     while (temp->next != NULL)
+     {
+          temp = temp->next;
+     }
+     temp->next =n;
 }
 
-int main()
+void display(node*head)
 {
-     
+     cout << "[\t";
+     node*temp = head;
+     while(temp!=NULL)
+     {
+          cout << temp->data << "\t";
+          temp = temp->next;
+     }
+     cout << "]"<<endl;
+}
+
+
+int main()
+{         
+     node*head=NULL;
+     int size;
+     cout << "Enter the amount of list size : " << endl;
+     cin >> size;
+     for(int i = 0; i < size; i++)
+     {    
+          int valu;
+          cin >> valu;
+          inserttionAttail(head,valu);
+     }
+
+     cout << "displaying the list : " << endl;
+     display(head);
      return 0;
 }
