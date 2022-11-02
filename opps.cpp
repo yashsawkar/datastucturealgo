@@ -24,12 +24,45 @@ class C : public B{
      {
           cout << " operting class C" << endl;
      }
-}
+};
+
+class ground{
+     public :
+     void preseceg()
+     { 
+          cout << "GROUND" << endl;
+     }
+};
+
+class middle : private ground {
+     public :
+     void presesem()
+     {
+          cout << "MIDDLE" << endl;
+     }
+     protected : 
+     void presesepm()
+     {
+          cout << "protected " << endl;
+     }
+};
+
+class top : public middle {
+     public :
+     void prseset()
+     {
+          cout << "TOP"<< endl; 
+     }
+};
+
 
 int main()
 {
      C C;
      C.operationa();
      C.operationb();
+     top t;
+     t.presesem();
+     t.prseset();
      return 0;
 }
