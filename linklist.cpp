@@ -46,6 +46,14 @@ void inserttionAttail(node*&head, int val)
 
 
 // deletion
+// deletion at head
+void deletionAThead(node*&head)
+{
+     node*todelete = head;
+     head = head->next;
+     delete todelete;
+}
+// deletion at given value
 void deletion(node*&head,int val)
 {
      if(head==NULL)
@@ -97,13 +105,11 @@ int main()
 {         
      node*head=NULL;
      int size;
-     cout << "Enter the amount of list size : " << endl;
+     cout << "Enter the list size : " << endl;
      cin >> size;
      for(int i = 0; i < size; i++)
      {    
-          int valu;
-          cin >> valu;
-          inserttionAttail(head,valu);
+          inserttionAttail(head,rand()%100);
      }
 
      display(head);
@@ -111,6 +117,8 @@ int main()
      int del;
      cin >> del;
      deletion(head,del);
+     display(head);
+     deletionAThead(head);
      display(head);
      
 
