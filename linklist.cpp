@@ -93,7 +93,8 @@ bool searchlink(node*head, int key)
 }
 
 // reversing the order
-node* reverselinklist(node*&head)
+// using while loop
+node* reverselinkloop(node*&head)
 {
      cout << "Reversed string : "<< endl;
 
@@ -110,6 +111,22 @@ node* reverselinklist(node*&head)
           currptr = nextpt;
      }
      return prevptr;             // since this is the new head pointer
+}
+
+//using recurrsion
+
+node*reverselinkrec(node*&head)
+{
+
+     if(head->next==NULL || head == NULL)
+     {
+          return head;
+     }
+     node*newhead = reverselinkrec(head->next);
+     head->next->next = head;
+     head->next = NULL;
+
+     return newhead;
 }
 
 
@@ -131,20 +148,26 @@ void display(node*head)
 
 int main()
 {         
-     node*head=NULL;
+     node*heade=NULL;
      int size;
      cout << "Enter the list size : " << endl;
      cin >> size;
      for(int i = 0; i < size; i++)
      {    
-          inserttionAttail(head,rand()%100);
+          inserttionAttail(heade,rand()%100);
      }
 
-     display(head);
+     display(heade);
+     node*head2 = heade;
      cout << "Enter the element to delete : " << endl;
      
-     node*reversedlink = reverselinklist(head);
-     display(reversedlink);
+     node*reversedwhi = reverselinkrec(heade);
+     display(reversedwhi);
+
+     node*reversedrec = reverselinkrec(head2);
+     display(reversedrec);
+     // node*reversedrec = reverselinkrec(head);
+     // display(reversedrec);
 
 
 
