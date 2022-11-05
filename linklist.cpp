@@ -62,7 +62,9 @@ void deletion(node*&head,int val)
      }
      if(head->next ==NULL)
      {
-          delete deletionAthead(head);
+          node*nowdelete = head;
+          head = head->next;
+          delete nowdelete;
           return;
      }
      node*temp = head;
@@ -89,6 +91,27 @@ bool searchlink(node*head, int key)
      }
      return false;
 }
+
+// reversing the order
+node* reverselinklist(node*&head)
+{
+     cout << "Reversed string : "<< endl;
+
+     node*prevptr = NULL;
+     node*currptr = head;
+     node*nextpt;
+
+     while(currptr !=NULL)
+     {
+          nextpt = currptr->next;
+          currptr->next = prevptr;
+
+          prevptr = currptr;
+          currptr = nextpt;
+     }
+     return prevptr;             // since this is the new head pointer
+}
+
 
 
 // output
@@ -119,13 +142,9 @@ int main()
 
      display(head);
      cout << "Enter the element to delete : " << endl;
-     int del;
-     cin >> del;
-     deletion(head,del);
-     display(head);
-     deletionAThead(head);
-     display(head);
      
+     node*reversedlink = reverselinklist(head);
+     display(reversedlink);
 
 
 
