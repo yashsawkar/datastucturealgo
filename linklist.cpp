@@ -114,7 +114,6 @@ node* reverselinkloop(node*&head)
 }
 
 //using recurrsion
-
 node*reverselinkrec(node*&head)
 {
 
@@ -127,6 +126,30 @@ node*reverselinkrec(node*&head)
      head->next = NULL;
 
      return newhead;
+}
+
+// reversing with bit size
+node* reversebit(node*&head, int bit)
+{
+     node*previous = NULL;
+     node*current = head;
+     node*nextptr;
+
+     int cout = 0;
+     while (current!=NULL && cout < bit)
+     {
+          nextptr = current->next;
+          current->next = previous; 
+
+          previous  = current;
+          current = nextptr;
+          cout++;
+     }
+     if(nextptr!=NULL)
+     {
+          current->next = reversebit(nextptr,bit); 
+     }
+     return previous;
 }
 
 
@@ -158,16 +181,17 @@ int main()
      }
 
      display(heade);
-     node*head2 = heade;
-     cout << "Enter the element to delete : " << endl;
      
-     node*reversedwhi = reverselinkrec(heade);
-     display(reversedwhi);
+     // node*reversedwhi = reverselinkrec(heade);
+     // display(reversedwhi);
 
-     node*reversedrec = reverselinkrec(head2);
-     display(reversedrec);
      // node*reversedrec = reverselinkrec(head);
      // display(reversedrec);
+
+     reversebit(heade,2);
+     display(heade);
+
+
 
 
 
