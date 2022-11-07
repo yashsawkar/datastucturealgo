@@ -66,8 +66,13 @@ int main()
      node*head = NULL;
      for(int i = 0; i < 6; i++)
      {
-          insertATtail(head,rand()%100);
+          insertATtail(head,rand()%10);
      }
+     display(head);
+     cout << "Enter the digit to enter : " << endl;
+     int val;
+     cin >> val;
+     insertAThead(head, val);
      display(head);
      return 0;
 }
