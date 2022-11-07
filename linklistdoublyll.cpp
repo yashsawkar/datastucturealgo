@@ -58,6 +58,7 @@ void deleteAThead(node*&head)
 
      delete todelete;
 }
+
 // deletion at given position
 void deletion(node*&head, int pos)
 {
@@ -75,7 +76,7 @@ void deletion(node*&head, int pos)
      }
      jump->prev->next = jump->next;
 
-     if(temp->next !=NULL)
+     if(jump->next !=NULL)
      {
           jump->next->prev= jump->prev;
      }
@@ -112,6 +113,8 @@ int main()
      int del;
      cin >> del;
      deletion(head, del);
+     display(head);
+     deleteAThead(head);
      display(head);
      return 0;
 }
