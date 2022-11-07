@@ -56,17 +56,7 @@ void createcycle(node*&head, int pos)
 }
 
 // breaking cycling linked list
-void breakcycle(node*&head, int pos)
-{
-     node*turtle = head;
-     node*rabit = head;
-     do
-     {
-          turtle = turtle->next;
-          rabit = rabit->next->next;
-     } while(turtle!=rabit);
-     
-}
+
 
 
 // insertation 
