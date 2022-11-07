@@ -16,6 +16,7 @@ class node{
           next = NULL;
      }
 };
+
 // to detecting the cycle linked list
 bool detectcycle(node* &head)
 {
@@ -243,6 +244,6 @@ int main()
      breakcycle(heade);
      cout << detectcycle(heade) << endl;
      display(heade);
-     
+
      return 0; 
 }
