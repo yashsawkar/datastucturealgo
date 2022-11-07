@@ -33,7 +33,7 @@ void insertAThead(node*&head, int val)
 }
 
 // Inserting the value at end
-void insertAThead(node*&head,int val)
+void insertATtail(node*&head,int val)
 {
      node *n  = new node(val);
      if(head == NULL)
@@ -63,6 +63,11 @@ void display(node*head)
 
 int main()
 {
-     
+     node*head = NULL;
+     for(int i = 0; i < 6; i++)
+     {
+          insertATtail(head,rand()%100);
+     }
+     display(head);
      return 0;
 }
