@@ -19,7 +19,6 @@ class node{
 };
 
 // insertation
-
 // insertting the value at first
 void insertAThead(node*&head, int val)
 {
@@ -49,6 +48,23 @@ void insertATtail(node*&head,int val)
      n->prev = jump;
 }
 
+// deletion
+// deletion at given position
+void deletion(node*&head, int pos)
+{
+     node*jump = head;
+     int count = 1;
+     while(jump!=NULL && count!=pos)
+     {
+          jump = jump->next;
+          count++;
+     }
+     jump->prev->next = jump->next;
+     jump->next->prev= jump->prev;
+
+     delete jump;
+}
+
 // display
 void display(node*head)
 {
@@ -73,6 +89,11 @@ int main()
      int val;
      cin >> val;
      insertAThead(head, val);
+     display(head);
+     cout << "Delete the position : " << endl;
+     int del;
+     cin >> del;
+     deletion(head, del);
      display(head);
      return 0;
 }
