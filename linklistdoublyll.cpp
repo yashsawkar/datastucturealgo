@@ -49,9 +49,23 @@ void insertATtail(node*&head,int val)
 }
 
 // deletion
+// deletion at head
+void deleteAThead(node*&head)
+{
+     node*todelete = head;
+     head=head->next;
+     head->prev=NULL;
+
+     delete todelete;
+}
 // deletion at given position
 void deletion(node*&head, int pos)
 {
+     if(pos==1)
+     {
+          deleteAThead(head);
+          return;
+     }
      node*jump = head;
      int count = 1;
      while(jump!=NULL && count!=pos)
@@ -60,7 +74,11 @@ void deletion(node*&head, int pos)
           count++;
      }
      jump->prev->next = jump->next;
-     jump->next->prev= jump->prev;
+
+     if(temp->next !=NULL)
+     {
+          jump->next->prev= jump->prev;
+     }
 
      delete jump;
 }
