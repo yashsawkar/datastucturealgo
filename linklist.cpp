@@ -16,6 +16,58 @@ class node{
           next = NULL;
      }
 };
+// to detecting the cycle linked list
+bool detectcycle(node* &head)
+{
+     node*turtle = head;
+     node*rabit = head;
+
+     while(rabit!=NULL && rabit->next!=NULL)
+     {
+          turtle =turtle->next;
+          rabit = rabit->next->next;
+
+          if(rabit==turtle)
+          {
+               return true;
+          }
+     }
+     return false;
+}
+
+// cycling the linked list
+// creating new cycle
+void createcycle(node*&head, int pos)
+{
+     node*temp = head;
+     node*startnode;
+
+     int count =1;
+     while(temp->next!=NULL)
+     {
+          if(count == pos)
+          {
+               startnode = temp;
+          }
+          temp = temp->next;
+          count++;
+     }
+     temp->next = startnode;
+}
+
+// breaking cycling linked list
+void breakcycle(node*&head, int pos)
+{
+     node*turtle = head;
+     node*rabit = head;
+     do
+     {
+          turtle = turtle->next;
+          rabit = rabit->next->next;
+     } while(turtle!=rabit);
+     
+}
+
 
 // insertation 
 // insertation at head
@@ -43,7 +95,6 @@ void inserttionAttail(node*&head, int val)
      }
      temp->next =n;
 }
-
 
 // deletion
 // deletion at head
@@ -152,8 +203,6 @@ node* reversebit(node*&head, int bit)
      return previous;
 }
 
-
-
 // output
 // display
 void display(node*head)
@@ -179,20 +228,11 @@ int main()
      {    
           inserttionAttail(heade,rand()%100);
      }
-
      display(heade);
-     
-     // node*reversedwhi = reverselinkrec(heade);
-     // display(reversedwhi);
-
-     // node*reversedrec = reverselinkrec(head);
-     // display(reversedrec);
-
-     reversebit(heade,2);
-     display(heade);
-
-
-
+     cout << detectcycle(heade) << endl;
+     createcycle(heade,3);
+     cout << detectcycle(heade) << endl;
+     // display(heade);
 
 
      return 0; 
