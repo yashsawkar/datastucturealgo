@@ -239,9 +239,10 @@ int main()
      cout << detectcycle(heade) << endl;
      createcycle(heade,3);
      cout << detectcycle(heade) << endl;
-     // display(heade);
+     display(heade);
      breakcycle(heade);
      cout << detectcycle(heade) << endl;
-
+     display(heade);
+     
      return 0; 
 }
