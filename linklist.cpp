@@ -56,7 +56,24 @@ void createcycle(node*&head, int pos)
 }
 
 // breaking cycling linked list
+void breakcycle(node*&head)
+{
+     node*turtle = head;
+     node*rabit = head;
+     do
+     {
+          turtle = turtle->next;
+          rabit = rabit->next->next;
+     }while(turtle!=rabit);
 
+     rabit= head;
+     while(turtle->next!=rabit->next)
+     {
+          turtle=turtle->next;
+          rabit=rabit->next;
+     }
+     turtle ->next = NULL;
+}
 
 
 // insertation 
@@ -223,7 +240,8 @@ int main()
      createcycle(heade,3);
      cout << detectcycle(heade) << endl;
      // display(heade);
-
+     breakcycle(heade);
+     cout << detectcycle(heade) << endl;
 
      return 0; 
 }
