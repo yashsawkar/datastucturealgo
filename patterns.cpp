@@ -418,7 +418,7 @@ int main()
         if(what == 's')
         {   
             cout << "Enter fill pattern or hollow pattern :" << endl;
-            cin >> s_wha
+            cin >> s_what;
             if(s_what == 'f')
             {
                 symbol();
