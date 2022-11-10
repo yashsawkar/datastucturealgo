@@ -53,25 +53,11 @@ class stack{
      }
 };
 
+
 int main()
 {
-     // stack st;
-     // cout << st.empty() << endl;
-     // for(int i = 0; i <6; i++)
-     // {
-     //      st.push(rand()%10);
-     // }
-     // cout << st.topie() << endl;
-     // st.pop();
-     // cout << st.topie() << endl;
-     // for (int i = 0; i < 5; i++)
-     // {
-     //      st.pop();
-     // }
-     // st.pop();
-     // cout << st.empty() << endl;
-
      
-          
+
+
      return 0;
 }
