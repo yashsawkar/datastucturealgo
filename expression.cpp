@@ -98,13 +98,66 @@ string InFixEvulation(string s)
           res += st.top();
           st.pop(); 
      }
-     } 
+     }
      return res;
+}
+
+bool BrackerIsValid(string s)
+{
+     int n = s.size();
+
+     stack<char> st;
+     int ans = true;
+
+     for(int i = 0; i < n; i++)
+     {
+          if(s[i] == '(' or s[i]=='[' or s[i]=='{')
+          {
+               st.push(s[i]);
+          }else if (s[i] == ')')
+          {
+               if(!st.empty() && st.top() == '(')
+               {
+                    st.pop();
+               } else {
+                    ans = false;
+                    break;
+               }
+          }else if (s[i] == ']')
+          {
+               if(!st.empty() && st.top() == '[')
+               {
+                    st.pop();
+               } else { 
+                    ans = false;
+                    break;
+               }
+          }else if (s[i] == '}')
+          {
+               if(!st.empty() && st.top() == '{')
+               {
+                    st.pop();
+               } else {
+                    ans = false;
+                    break;
+               }
+          } else if (!st.empty())
+          {
+               return false;
+          }
+     }
+     return ans;
 }
 
 int main()
 {
      // cout << PostFixEvulation("23+") << endl;
      cout<<InFixEvulation("(a-b/c)*(a/k-1)")<<endl;
+
+     string stu = "{([]})";
+     if(BrackerIsValid(stu))
+     {
+          cout << "Is valid" << endl;
+     }else { cout << "This bracket structure is not valid" << endl;}
      return 0;
 }
