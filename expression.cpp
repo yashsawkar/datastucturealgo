@@ -154,7 +154,12 @@ int main()
      // cout << PostFixEvulation("23+") << endl;
      cout<<InFixEvulation("(a-b/c)*(a/k-1)")<<endl;
 
-     string stu = "{([]})";
+     string stu = "{}[]()";
+     if(BrackerIsValid(stu))
+     {
+          cout << "Is valid" << endl;
+     }else { cout << "This bracket structure is not valid" << endl;}
+     cin >> stu;
      if(BrackerIsValid(stu))
      {
           cout << "Is valid" << endl;
