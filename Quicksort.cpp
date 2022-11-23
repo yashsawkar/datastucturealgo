@@ -40,8 +40,13 @@ void quicksort(int arr[], int l , int r)
 
 int main()
 {    
-     int arr[10] = { 4,2,1,6,7,3,0,8,9,5};
+     int arr[10];
      cout << "array to be sorted : " << endl;
+     for(int i = 0; i < 10; i++)
+     {
+          arr[i] = rand()%10;
+          cout << arr[i] << endl;
+     }
      
      cout << "Sorted array : "<< endl;
      quicksort(arr,0,9);
