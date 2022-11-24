@@ -46,7 +46,6 @@ void merge(int arr[], int l, int mid, int r)
           arr[k] = b[j];
           k++; j++;
       }
-
 }
 
 
