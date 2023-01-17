@@ -45,15 +45,17 @@ int main()
      for(int i = 0; i < 10; i++)
      {
           arr[i] = rand()%10;
-          cout << arr[i] << endl;
+          cout << arr[i] << "   ";
      }
+     cout << endl;
      
      cout << "Sorted array : "<< endl;
      quicksort(arr,0,9);
      for(int i = 0 ; i < 10; i++)
      {
-          cout << arr[i] << endl;
+          cout << arr[i] << "   ";
      }
+     cout << endl;
      
      return 0;
 }
